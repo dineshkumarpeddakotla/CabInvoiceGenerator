@@ -24,4 +24,14 @@ public class TestCabInvoiceGenerator {
         System.out.println("Minimum Fare = " +fare);
         Assertions.assertEquals(5, fare,0.0);
     }
+
+    @Test
+    public void whenGivenMultipleRidesShouldReturnInvoiceSummary() {
+        CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
+        Ride[] rides = { new Ride(2.0, 5),
+                new Ride(0.1, 1)};
+        double totalFare = cabInvoiceGenerator.calculateTotalFare(rides);
+        System.out.println("Total Fare = "+totalFare);
+        Assertions.assertEquals(30, totalFare,0.0);
+    }
 }
